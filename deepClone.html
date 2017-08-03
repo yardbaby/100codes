@@ -1,1 +1,39 @@
-123
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+
+  var deepClone = function(obj) {
+    var o = {};
+    copy(o,obj);
+    return o;
+
+    function copy (o1,o2) {
+      // 将o2的属性拷贝到o1上
+      for(var k in o2) {
+        // 判断 o2[ k ] 是不是对象，如果是对象
+        // 表示 o1[ k ] 和o2[ k ] 都是对象
+        // 也就是说需要将o2[ k ] 这个对象中的属性拷贝到o1[ k ] 上
+        if( typeof( o2[ k ] ) === 'object') {
+          o1[ k ] = {};
+          copy(o1[ k ],o2[ k ]);
+        }else {
+          o1[ k ] = o2[ k ];
+        }
+      }
+    }
+
+  };
+
+
+
+
+</script>
+</html>
+
